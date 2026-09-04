@@ -1,0 +1,431 @@
+Metadata-Version: 2.4
+Name: Rika
+Version: 3.0.0
+Summary: A lightweight multithreaded web path fuzzer for authorized security testing
+Author: hancock
+License-Expression: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.32.0
+Requires-Dist: colorama>=0.4.6
+Requires-Dist: chardet>=5.2.0
+
+# RIKA V3
+
+A lightweight multithreaded web path fuzzer written in Python for authorized security testing.
+
+## Features
+
+* Multithreaded HTTP requests
+* Connection pooling
+* Automatic retries
+* Custom User-Agent
+* Custom HTTP headers
+* GET / HEAD requests
+* URL path fuzzing
+* Extension fuzzing
+* Status-code filtering
+* Response-size filtering
+* Word-count filtering
+* Line-count filtering
+* Redirect control
+* TLS verification control
+* Request rate limiting
+* Progress display
+* Graceful Ctrl+C handling
+* TXT / JSON / CSV output
+* Python package installation with `pip install .`
+* PyInstaller executable support
+
+## Requirements
+
+* Python 3.9+
+* requests
+* colorama
+* chardet
+
+## Installation
+
+### Clone
+
+```bash
+git clone https://github.com/YOUR_USERNAME/RIKA.git
+cd Rika
+```
+
+### Virtual environment
+
+Linux / Kali:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Windows:
+
+```powershell
+py -m venv .venv
+.venv\Scripts\activate
+```
+
+### Install the project
+
+```bash
+python -m pip install .
+```
+
+The dependencies are installed automatically from `pyproject.toml`.
+
+### Development installation
+
+If you are actively modifying the source:
+
+```bash
+python -m pip install -e .
+```
+
+## Verify installation
+
+```bash
+RIA
+```
+
+You can also run:
+
+```bash
+python RIKAA
+```
+
+## Basic Usage
+
+```bash
+RIKAhttps://example.com/FUZZ -w wordlist.tA
+```
+
+Only test systems where you have explicit authorization.
+
+## Threads
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    -t 20
+```
+
+## Extensions
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    -e php,html,txt,json
+```
+
+Example generated paths:
+
+```text
+/admin
+/admin.php
+/admin.html
+/admin.txt
+/admin.json
+```
+
+## Status Code Filtering
+
+Example:
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    --status 200,204,301,302,403
+```
+
+## Response Size Filtering
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    --size 1234
+```
+
+## Word Filtering
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    --words 50
+```
+
+## Line Filtering
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    --lines 25
+```
+
+## HTTP Method
+
+GET:
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    -m GET
+```
+
+HEAD:
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    -m HEAD
+```
+
+## Custom Headers
+
+Example:
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    -H "X-Test: RIA
+```
+
+Multiple headers can be supplied:
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    -H "X-Test: RIA
+    -H "Accept: application/json"
+```
+
+## Redirects
+
+Disable redirects:
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    --no-redirect
+```
+
+## TLS Verification
+
+For an authorized lab using a self-signed certificate:
+
+```bash
+RIA
+    -u https://example.local/FUZZ \
+    -w wordlist.txt \
+    --no-tls-verify
+```
+
+Use this only when necessary.
+
+## Rate Limiting
+
+Example:
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    --delay 0.2
+```
+
+This adds a delay between requests to reduce load on the target.
+
+## Output
+
+### TXT
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    -o results.txt
+```
+
+### JSON
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    --json results.json
+```
+
+### CSV
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    --csv results.csv
+```
+
+## Example
+
+```bash
+RIA
+    -u https://example.com/FUZZ \
+    -w wordlist.txt \
+    -t 30 \
+    -e php,html,txt \
+    --status 200,204,301,302,403 \
+    --delay 0.05 \
+    --json results.json
+```
+
+## Package Installation
+
+Install locally:
+
+```bash
+python -m pip install .
+```
+
+Editable/development mode:
+
+```bash
+python -m pip install -e .
+```
+
+Uninstall:
+
+```bash
+python -m pip uninstall RIA
+```
+
+## Build Python Package
+
+Install build:
+
+```bash
+python -m pip install build
+```
+
+Build:
+
+```bash
+python -m build
+```
+
+The generated packages will appear inside:
+
+```text
+dist/
+```
+
+## Build Standalone Executable
+
+Install PyInstaller:
+
+```bash
+python -m pip install pyinstaller
+```
+
+Build:
+
+```bash
+pyinstaller --onefile --name RIKA
+```
+
+The executable will be generated inside:
+
+```text
+dist/
+```
+
+Linux:
+
+```bash
+./dist/RIKA 
+```
+
+Windows:
+
+```powershell
+.\dist\RIKA 
+```
+
+PyInstaller builds for the operating system it is running on, so build the Windows executable on Windows and the Linux executable on Linux.
+
+## Project Structure
+
+```text
+RIKA 
+│
+├── RIKA 
+├── pyproject.toml
+├── requirements.txt
+├── README.md
+├── LICENSE
+└── .gitignore
+```
+
+## Development
+
+Run directly:
+
+```bash
+python RIKA h
+```
+
+Install editable:
+
+```bash
+python -m pip install -e .
+```
+
+Then:
+
+```bash
+RIKA 
+```
+
+## Roadmap
+
+### V3.1
+
+* Baseline response detection
+* Better wildcard detection
+* Improved output formatting
+* Configuration file
+* More detailed statistics
+
+### V4
+
+* Recursive directory discovery
+* Smart wildcard filtering
+* Async HTTP engine
+* Plugin architecture
+* Request templates
+* Advanced response comparison
+* Better crawling integration
+
+## Disclaimer
+
+RIKA ntended for authorized security testing, CTFs, penetration-testing labs, and systems where you have explicit permission to perform testing.
+
+The author is not responsible for misuse, unauthorized scanning, disruption, or damage caused by this software.
+
+## License
+
+RIKA eleased under the MIT License.
+
+Copyright (c) 2026 hancock.

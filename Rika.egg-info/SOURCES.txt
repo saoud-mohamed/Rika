@@ -1,0 +1,9 @@
+README.md
+Rika.py
+pyproject.toml
+Rika.egg-info/PKG-INFO
+Rika.egg-info/SOURCES.txt
+Rika.egg-info/dependency_links.txt
+Rika.egg-info/entry_points.txt
+Rika.egg-info/requires.txt
+Rika.egg-info/top_level.txt

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Rika"
+version = "3.0.0"
+description = "A lightweight multithreaded web path fuzzer for authorized security testing"
+readme = "README.md"
+requires-python = ">=3.9"
+
+license = "MIT"
+license-files = ["LICENSE"]
+
+authors = [
+    { name = "hancock" }
+]
+
+dependencies = [
+    "requests>=2.32.0",
+    "colorama>=0.4.6",
+    "chardet>=5.2.0"
+]
+
+[project.scripts]
+Rika = "Rika:main"
+
+[tool.setuptools]
+py-modules = ["Rika"]
