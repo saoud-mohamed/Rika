@@ -23,7 +23,7 @@ dependencies = [
 ]
 
 [project.scripts]
-Rika = "Rika:main"
+rika = "rika:main"
 
 [tool.setuptools]
-py-modules = ["Rika"]
+py-modules = ["rika"]
