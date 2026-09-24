@@ -233,7 +233,7 @@ Use this only when necessary.
 Example:
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     --delay 0.2
@@ -246,7 +246,7 @@ This adds a delay between requests to reduce load on the target.
 ### TXT
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     -o results.txt
@@ -255,7 +255,7 @@ RIA
 ### JSON
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     --json results.json
@@ -264,7 +264,7 @@ RIA
 ### CSV
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     --csv results.csv
@@ -273,7 +273,7 @@ RIA
 ## Example
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     -t 30 \
@@ -300,7 +300,7 @@ python -m pip install -e .
 Uninstall:
 
 ```bash
-python -m pip uninstall RIA
+python -m pip uninstall rika
 ```
 
 ## Build Python Package
