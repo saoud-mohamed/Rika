@@ -76,19 +76,19 @@ python -m pip install -e .
 ## Verify installation
 
 ```bash
-RIA
+rika
 ```
 
 You can also run:
 
 ```bash
-python RIKAA
+python rika
 ```
 
 ## Basic Usage
 
 ```bash
-RIKAhttps://example.com/FUZZ -w wordlist.tA
+rika -u https://example.com/FUZZ -w wordlist.txt
 ```
 
 Only test systems where you have explicit authorization.
@@ -96,7 +96,7 @@ Only test systems where you have explicit authorization.
 ## Threads
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     -t 20
@@ -105,7 +105,7 @@ RIA
 ## Extensions
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     -e php,html,txt,json
@@ -126,7 +126,7 @@ Example generated paths:
 Example:
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     --status 200,204,301,302,403
@@ -135,7 +135,7 @@ RIA
 ## Response Size Filtering
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     --size 1234
@@ -144,7 +144,7 @@ RIA
 ## Word Filtering
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     --words 50
@@ -153,7 +153,7 @@ RIA
 ## Line Filtering
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     --lines 25
@@ -164,7 +164,7 @@ RIA
 GET:
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     -m GET
@@ -173,7 +173,7 @@ RIA
 HEAD:
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     -m HEAD
@@ -184,19 +184,23 @@ RIA
 Example:
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
-    -H "X-Test: RIA
+    -H "X-Test:
+
+rika
 ```
 
 Multiple headers can be supplied:
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
-    -H "X-Test: RIA
+    -H "X-Test:
+
+rika
     -H "Accept: application/json"
 ```
 
@@ -205,7 +209,7 @@ RIA
 Disable redirects:
 
 ```bash
-RIA
+rika
     -u https://example.com/FUZZ \
     -w wordlist.txt \
     --no-redirect
@@ -216,7 +220,7 @@ RIA
 For an authorized lab using a self-signed certificate:
 
 ```bash
-RIA
+rika
     -u https://example.local/FUZZ \
     -w wordlist.txt \
     --no-tls-verify
